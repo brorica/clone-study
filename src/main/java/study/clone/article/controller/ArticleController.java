@@ -24,6 +24,7 @@ public class ArticleController implements ArticleControllerDocs {
 
     /**
      * 게시글 생성
+     * 
      * @return 성공시 200 OK
      * @since 24.12.14 19:14
      */
