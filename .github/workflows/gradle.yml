@@ -37,10 +37,15 @@ jobs:
           HONEY_JAR: ${{ secrets.HONEY_JAR }}
           
       - name: Copy JAR to GCP VM
+        env:
+          HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          HONEY_JAR: ${{ secrets.HONEY_JAR }}
         run: |
           echo "${SSH_KEY}" > id_rsa
           chmod 600 id_rsa
-          scp -v -o StrictHostKeyChecking=no -i id_rsa build/libs/${HONEY_JAR}.jar ${USERNAME}@${HOST}:/home/${USERNAME}/app.jar
+          scp -o StrictHostKeyChecking=no -i id_rsa build/libs/${HONEY_JAR}.jar ${USERNAME}@${HOST}:/home/${USERNAME}/app.jar
 
 
       - name: Run the application on GCP VM
