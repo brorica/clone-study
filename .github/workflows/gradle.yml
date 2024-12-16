@@ -42,6 +42,7 @@ jobs:
           chmod 600 id_rsa
           scp -v -o StrictHostKeyChecking=no -i id_rsa build/libs/${HONEY_JAR}.jar ${USERNAME}@${HOST}:/home/${USERNAME}/app.jar
 
+
       - name: Run the application on GCP VM
         env:
           HOST: ${{ secrets.HOST }}
