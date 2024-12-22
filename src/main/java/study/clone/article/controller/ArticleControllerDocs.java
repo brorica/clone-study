@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import study.clone.article.controller.request.ArticleCreateDto;
 import study.clone.article.controller.request.ArticleUpdateDto;
+import study.clone.article.controller.response.ArticleReadDto;
 import study.clone.article.controller.response.ArticleReadDtoList;
 
 /**
@@ -37,6 +38,14 @@ public interface ArticleControllerDocs {
     )
     @GetMapping
     ResponseEntity<ArticleReadDtoList> readArticleList(@RequestParam("lastId") Integer lastId);
+
+    @Operation(summary = "게시글 상세 조회", description = "게시글의 상세 정보를 불러온다.")
+    @ApiResponse(
+        responseCode = "200",
+        description = "게시글 상세 조회 성공"
+    )
+    @GetMapping
+    ResponseEntity<ArticleReadDto> readArticleDetail(@PathVariable("article-id") Integer articleId);
 
     @Operation(summary = "게시글 수정", description = "게시글의 제목을 바꾼다. 이미지/동영상 수정은 불가능")
     @ApiResponse(

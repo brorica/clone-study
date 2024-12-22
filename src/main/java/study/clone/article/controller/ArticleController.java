@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import study.clone.article.controller.request.ArticleCreateDto;
 import study.clone.article.controller.request.ArticleUpdateDto;
+import study.clone.article.controller.response.ArticleReadDto;
 import study.clone.article.controller.response.ArticleReadDtoList;
 
 /**
@@ -40,6 +41,17 @@ public class ArticleController implements ArticleControllerDocs {
      */
     @GetMapping
     public ResponseEntity<ArticleReadDtoList> readArticleList(@RequestParam("lastId") Integer lastId) {
+        return ResponseEntity.ok(null);
+    }
+
+    /**
+     * 게시글 상세조회
+     * @param articleId 게시글 id
+     * @return 게시글 상세정보
+     * @since 24.12.22 16:11
+     */
+    @GetMapping("{article-id}")
+    public ResponseEntity<ArticleReadDto> readArticleDetail(@PathVariable("article-id") Integer articleId) {
         return ResponseEntity.ok(null);
     }
 
