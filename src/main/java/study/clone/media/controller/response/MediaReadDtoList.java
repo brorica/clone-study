@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MediaReadDtoList {
 
-    private final Integer postId;
+    private final Integer articleId;
 
     private final List<MediaReadDto> mediaList;
 }
