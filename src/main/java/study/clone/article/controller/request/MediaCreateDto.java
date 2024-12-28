@@ -1,4 +1,4 @@
-package study.clone.media.controller.request;
+package study.clone.article.controller.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

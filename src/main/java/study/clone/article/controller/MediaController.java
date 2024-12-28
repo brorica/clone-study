@@ -1,4 +1,4 @@
-package study.clone.media.controller;
+package study.clone.article.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import study.clone.media.controller.request.MediaCreateDtoList;
-import study.clone.media.controller.response.MediaCreateResponseDtoList;
-import study.clone.media.controller.response.MediaReadDtoList;
+import study.clone.article.controller.request.MediaCreateDtoList;
+import study.clone.article.controller.response.MediaCreateResponseDtoList;
+import study.clone.article.controller.response.MediaReadDtoList;
 
 /**
  * 이미지/동영상 기능 rest controller

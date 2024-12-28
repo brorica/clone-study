@@ -2,7 +2,6 @@ package study.clone.article.controller.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import study.clone.media.controller.response.MediaReadDto;
 
 import java.time.LocalDateTime;
 import java.util.List;

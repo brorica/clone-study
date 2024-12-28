@@ -1,4 +1,4 @@
-package study.clone.media.controller.response;
+package study.clone.article.controller.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

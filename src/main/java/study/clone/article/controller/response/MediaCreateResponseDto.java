@@ -1,27 +1,23 @@
-package study.clone.media.controller.response;
+package study.clone.article.controller.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import study.clone.media.domain.MediaType;
 
 import java.time.LocalDateTime;
 
 /**
- * 이미지/동영상 조회 결과 DTO
+ * 이미지/동영상 업로드 결과 DTO
  * @since 24.12.14 19:14
  */
 @Getter
 @AllArgsConstructor
-public class MediaReadDto {
+public class MediaCreateResponseDto {
 
     private final Integer mediaId;
-
+    // 이미지/동영상이 저장된 경로
     private final String mediaUri;
-
-    private final MediaType mediaType;
 
     private final LocalDateTime createdAt;
 
     private final LocalDateTime updatedAt;
-
 }
