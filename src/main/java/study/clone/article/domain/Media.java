@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
 import study.clone.common.dto.BaseTimeEntity;
+import study.clone.member.domain.Member;
 
 @Getter
 @Entity
@@ -25,16 +26,20 @@ public class Media  extends BaseTimeEntity {
     @SequenceGenerator(name = "media_seq", sequenceName = "media_seq", allocationSize = 1)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "member_id", nullable = false)
+    private Member member;
+
+    @ManyToOne
+    @JoinColumn(name = "article_id", nullable = false)
+    private Article article;
+
     @Column(nullable = false)
     private String url;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private MediaType mediaType;
-
-    @ManyToOne
-    @JoinColumn(name = "article_id", nullable = false)
-    private Article article;
 
     @Builder
     public Media(String url, MediaType mediaType, Article article) {

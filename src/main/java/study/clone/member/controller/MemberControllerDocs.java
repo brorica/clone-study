@@ -21,7 +21,7 @@ public interface MemberControllerDocs {
             responseCode = "200",
             description = "로그인 성공. 로그인한 사용자 정보 반환"
     )
-    @PostMapping
+    @PostMapping("/login")
     ResponseEntity<LoginSuccessDto> login(@RequestBody LoginRequest loginDto);
 
     @Operation(summary = "로그아웃", description = "로그아웃")
