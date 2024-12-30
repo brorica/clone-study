@@ -41,5 +41,4 @@ public class MemberService {
         return memberRepository.findByUsername(username)
             .orElseThrow(() -> new RuntimeException("존재하지 않는 username " + username));
     }
-
 }

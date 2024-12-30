@@ -1,5 +1,6 @@
 package study.clone.article.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,14 +15,18 @@ import study.clone.article.controller.request.ArticleCreateDto;
 import study.clone.article.controller.request.ArticleUpdateDto;
 import study.clone.article.controller.response.ArticleReadDto;
 import study.clone.article.controller.response.ArticleReadDtoList;
+import study.clone.article.sevice.ArticleService;
 
 /**
  * 게시글 기능 rest controller
  * @since 24.12.14 19:14
  */
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/articles")
 public class ArticleController implements ArticleControllerDocs {
+
+    private final ArticleService articleService;
 
     /**
      * 게시글 생성
@@ -30,6 +35,7 @@ public class ArticleController implements ArticleControllerDocs {
      */
     @PostMapping
     public ResponseEntity<?> createArticle(@RequestBody ArticleCreateDto createDto) {
+        articleService.saveArticle(createDto);
         return ResponseEntity.ok().build();
     }
 

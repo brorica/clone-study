@@ -1,6 +1,7 @@
 package study.clone.article.controller.response;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
  * @since 24.12.14 19:14
  */
 @Getter
-@AllArgsConstructor
+@Builder
 public class MediaCreateResponseDto {
 
     private final Integer mediaId;
@@ -18,6 +19,4 @@ public class MediaCreateResponseDto {
     private final String mediaUri;
 
     private final LocalDateTime createdAt;
-
-    private final LocalDateTime updatedAt;
 }

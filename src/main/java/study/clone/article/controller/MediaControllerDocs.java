@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import study.clone.article.controller.request.MediaCreateDtoList;
-import study.clone.article.controller.response.MediaCreateResponseDtoList;
+import study.clone.article.controller.request.MediaCreateDto;
+import study.clone.article.controller.response.MediaCreateResponseDto;
 import study.clone.article.controller.response.MediaReadDtoList;
 
 /**
@@ -25,7 +25,7 @@ public interface MediaControllerDocs {
             description = "이미지/동영상 업로드 성공"
     )
     @PostMapping
-    ResponseEntity<MediaCreateResponseDtoList> createMediaList(@RequestBody MediaCreateDtoList createDtoList);
+    ResponseEntity<MediaCreateResponseDto> createMediaList(@RequestBody MediaCreateDto createDto);
 
     @Operation(summary = "이미지/동영상 불러오기", description = "게시글 조회시, 이미지/동영상 uri 조회")
     @ApiResponse(
