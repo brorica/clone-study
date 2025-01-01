@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,5 +39,12 @@ public class MediaController implements MediaControllerDocs {
     @GetMapping
     public ResponseEntity<MediaReadDtoList> readMediaList(@RequestParam("article-id") Integer articleId) {
         return ResponseEntity.ok(null);
+    }
+
+    @Override
+    @GetMapping("/{media-identifier}")
+    public ResponseEntity<?> readMediaBinary(@PathVariable("media-identifier") String mediaIdentifier) {
+        byte[] mediaBinary = mediaService.findMediaBinary(mediaIdentifier);
+        return ResponseEntity.ok(mediaBinary);
     }
 }

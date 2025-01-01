@@ -56,6 +56,17 @@ public class MediaService {
     }
 
     /**
+     * 미디어의 실제 바이너리 반환
+     * @param mediaIdentifier 바이너리를 반환할 미디어의 식별자
+     * @return base64로 인코딩된 미디어 바이너리 / 없는 식별자라면 예외
+     */
+    public byte[] findMediaBinary(final String mediaIdentifier) {
+        Media media = mediaRepository.findByIdentifier(mediaIdentifier)
+            .orElseThrow(() -> new RuntimeException("존재하지 않는 미디어 identifier: " + mediaIdentifier));
+        return media.getFileData();
+    }
+
+    /**
      * 게시글 최종 업로드시 미디어 entity 에서 수행할 작업
      * 1. 미디어 entity에 최종 업로드된 게시글 entity 매핑
      * 2. 게시글 entity와 매핑되지 않은 미디어들 전부 삭제 (article = NULL로 판별)

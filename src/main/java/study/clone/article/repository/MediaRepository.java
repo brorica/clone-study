@@ -7,6 +7,7 @@ import study.clone.article.domain.Media;
 import study.clone.member.domain.Member;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface MediaRepository extends JpaRepository<Media, Integer> {
 
@@ -15,4 +16,6 @@ public interface MediaRepository extends JpaRepository<Media, Integer> {
     @Modifying
     @Query("DELETE FROM Media m WHERE m.member = :member AND m.article IS NULL")
     void deleteUnRelatedMedia(final Member member);
+
+    Optional<Media> findByIdentifier(final String identifier);
 }
