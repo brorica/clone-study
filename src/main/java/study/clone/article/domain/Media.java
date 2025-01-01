@@ -39,7 +39,7 @@ public class Media  extends BaseTimeEntity {
     private Article article;
 
     @Column(nullable = false)
-    private String uri;
+    private String identifier;
 
     @Column(columnDefinition = "bytea")
     private byte[] fileData;
@@ -57,7 +57,7 @@ public class Media  extends BaseTimeEntity {
     @Builder
     public Media(Member member, final MediaType mediaType, final byte[] fileData) {
         this.member = member;
-        this.uri = generateRandomHash32();
+        this.identifier = generateRandomHash32();
         this.mediaType = mediaType;
         this.fileData = fileData;
     }
@@ -79,7 +79,7 @@ public class Media  extends BaseTimeEntity {
     public MediaCreateResponseDto getCreateResponseDto() {
         return MediaCreateResponseDto.builder()
             .mediaId(id)
-            .mediaUri(uri)
+            .mediaUri(identifier)
             .createdAt(getCreatedAt())
             .build();
     }
