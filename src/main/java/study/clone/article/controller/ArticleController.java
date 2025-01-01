@@ -56,7 +56,7 @@ public class ArticleController implements ArticleControllerDocs {
      * @return 게시글 상세정보
      * @since 24.12.22 16:11
      */
-    @GetMapping("{article-id}")
+    @GetMapping("/{article-id}")
     public ResponseEntity<ArticleReadDto> readArticleDetail(@PathVariable("article-id") Integer articleId) {
         return ResponseEntity.ok(null);
     }
